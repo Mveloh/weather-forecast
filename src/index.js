@@ -21,7 +21,6 @@ function setDate(timestamp) {
   return `${day} ${hour}:${minute}`;
 }
 function showTemperature(response) {
-  console.log(response.data);
   let temperaturePart = document.querySelector("#temp");
   temperaturePart.innerHTML = Math.round(response.data.temperature.current);
   let cityPart = document.querySelector("#city");
@@ -36,7 +35,7 @@ function showTemperature(response) {
   datePart.innerHTML = setDate(response.data.time * 1000);
 }
 let apiKey = "864c93f2e4tcc8176afdd913f0a2b0o2";
-let apiUrl = `https://api.shecodes.io/weather/v1/current?query=Durban&key=${apiKey}&units=metric`;
-//let apiUrl = "https://api.shecodes.io/weather/v1/current?query=Lisbon&key=864c93f2e4tcc8176afdd913f0a2b0o2&units=metric";
-//console.log(apiUrl);
+let city = "Pinetown";
+let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
+
 axios.get(apiUrl).then(showTemperature);
