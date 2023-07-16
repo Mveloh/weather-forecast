@@ -9,6 +9,7 @@
       integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
       crossorigin="anonymous"
     />
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <link rel="stylesheet" href="src/styles.css" />
     <title>Weather Forecast</title>
   </head>
@@ -17,10 +18,10 @@
       <div class="weather-forecast-site">
         <div class="weather-forecast">
           <div class="location">
-            <h1>Durban</h1>
+            <h1 id="city"></h1>
             <ul>
               <li>Last Updated: Thursday 17:55</li>
-              <li>Cloudy</li>
+              <li id="condition">Cloudy</li>
             </ul>
           </div>
           <div class="row">
@@ -31,15 +32,14 @@
                   alt="cloudy"
                 />
                 <div>
-                  <strong id="temperature">12</strong
-                  ><span class="nums">°C | °F</span>
+                  <strong id="temp"></strong><span class="nums">°C | °F</span>
                 </div>
               </div>
             </div>
             <div class="col-6">
               <ul>
-                <li>Humididy : 20%</li>
-                <li>Wind : 2 km/h</li>
+                <li>Humidity: <span id="humii"></span>%</li>
+                <li>Wind: <span id="speed"></span>km/h</li>
               </ul>
             </div>
           </div>
