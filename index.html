@@ -17,6 +17,26 @@
     <div class="container">
       <div class="weather-forecast-site">
         <div class="weather-forecast">
+          <form id="search-form" class="mb-2">
+            <div class="row">
+              <div class="col-9">
+                <input
+                  type="search"
+                  placeholder="Enter a city..."
+                  class="form-control"
+                  id="city-input"
+                />
+              </div>
+              <div class="col-3">
+                <input
+                  type="submit"
+                  value="Search"
+                  class="btn btn-primary w-100"
+                  id="search-input"
+                />
+              </div>
+            </div>
+          </form>
           <div class="location">
             <h1 id="city"></h1>
             <ul>

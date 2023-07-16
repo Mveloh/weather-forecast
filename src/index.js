@@ -40,8 +40,18 @@ function showTemperature(response) {
   );
   iconPart.setAttribute("alt", response.data.condition.description);
 }
-let apiKey = "864c93f2e4tcc8176afdd913f0a2b0o2";
-let city = "Durban";
-let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
+function displaySearch(city) {
+  let apiKey = "864c93f2e4tcc8176afdd913f0a2b0o2";
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(showTemperature);
+}
+function searchForCity(event) {
+  event.preventDefault();
+  let cityInput = document.querySelector("#city-input");
+  displaySearch(cityInput.value);
+}
 
-axios.get(apiUrl).then(showTemperature);
+let form = document.querySelector("#search-form");
+form.addEventListener("submit", searchForCity);
+
+displaySearch("Durban");
