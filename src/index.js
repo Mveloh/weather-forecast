@@ -21,7 +21,6 @@ function setDate(timestamp) {
   return `${day} ${hour}:${minute}`;
 }
 function showTemperature(response) {
-  console.log(response.data.condition.icon);
   let temperaturePart = document.querySelector("#temp");
   temperaturePart.innerHTML = Math.round(response.data.temperature.current);
   let cityPart = document.querySelector("#city");
@@ -39,6 +38,7 @@ function showTemperature(response) {
     "src",
     `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition.icon}.png`
   );
+  iconPart.setAttribute("alt", response.data.condition.description);
 }
 let apiKey = "864c93f2e4tcc8176afdd913f0a2b0o2";
 let city = "Durban";
