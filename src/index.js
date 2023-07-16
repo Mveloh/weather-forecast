@@ -1,5 +1,5 @@
-function setDate(timeframe) {
-  let now = new Date(timeframe);
+function setDate(timestamp) {
+  let now = new Date(timestamp);
   let hour = now.getHours();
   if (hour < 10) {
     hour = `0${hour}`;
@@ -32,6 +32,8 @@ function showTemperature(response) {
   humidityPart.innerHTML = response.data.temperature.humidity;
   let windPart = document.querySelector("#speed");
   windPart.innerHTML = Math.round(response.data.wind.speed);
+  let datePart = document.querySelector("#date");
+  datePart.innerHTML = setDate(response.data.time * 1000);
 }
 let apiKey = "864c93f2e4tcc8176afdd913f0a2b0o2";
 let apiUrl = `https://api.shecodes.io/weather/v1/current?query=Durban&key=${apiKey}&units=metric`;
