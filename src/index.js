@@ -22,7 +22,8 @@ function setDate(timestamp) {
 }
 function showTemperature(response) {
   let temperaturePart = document.querySelector("#temp");
-  temperaturePart.innerHTML = Math.round(response.data.temperature.current);
+  celsiusPart = response.data.temperature.current;
+  temperaturePart.innerHTML = Math.round(celsiusPart);
   let cityPart = document.querySelector("#city");
   cityPart.innerHTML = response.data.city;
   let conditionPart = document.querySelector("#condition");
@@ -50,8 +51,19 @@ function searchForCity(event) {
   let cityInput = document.querySelector("#city-input");
   displaySearch(cityInput.value);
 }
+function showFahrenhitTemperature(event) {
+  event.preventDefault();
+  let temperaturePart = document.querySelector("#temp");
+  let fahrenhitTemp = Math.round((celsiusPart * 9) / 5 + 32);
+  temperaturePart.innerHTML = fahrenhitTemp;
+}
+
+let celsiusPart = null;
 
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", searchForCity);
+
+let fahrenhitPart = document.querySelector("#fahrenhit");
+fahrenhitPart.addEventListener("click", showFahrenhitTemperature);
 
 displaySearch("Durban");
